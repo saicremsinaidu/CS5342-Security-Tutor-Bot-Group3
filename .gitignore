@@ -6,6 +6,7 @@ __pycache__/
 
 # Virtual env
 .venv/
+venv/
 
 # Local app data
 data/vectordb/
