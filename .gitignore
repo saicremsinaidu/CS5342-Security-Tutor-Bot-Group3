@@ -1,60 +1,20 @@
-# ==========================================
-# Python Bytecode & Caches
-# ==========================================
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pkl
-*.log
 
-# ==========================================
-# Virtual Environments
-# ==========================================
-venv/
+# Virtual env
 .venv/
-env/
-.env/
 
-# ==========================================
-# App & Data Cache
-# ==========================================
-# Vector DB (Chroma)
+# Local app data
 data/vectordb/
-data/chroma/
-# Any temporary model/data outputs
-*.bin
 *.gguf
-*.npy
-*.pt
-*.dylib
-*.so
+*.bin
 
-# ==========================================
-# Streamlit Cache & Session State
-# ==========================================
-.streamlit/
-.streamlit_cache/
-
-# ==========================================
-# System/Editor Files
-# ==========================================
+# OS/Editor
 .DS_Store
 Thumbs.db
 .vscode/
-.idea/
-*.swp
 
-# ==========================================
-# Large Files (to avoid GitHub push errors)
-# ==========================================
-*.pdf
 data/**/*.pdf
-
-# ==========================================
-# Optional Local Artifacts
-# ==========================================
-# screenshots/
-# local backups
-*.bak
-*.tmp
