@@ -128,10 +128,25 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 
 ---
 
+## 📊 Training Data and Data Formats
+
+The system uses locally stored course materials as its knowledge base.
+
+- **Source Documents:** CS5342 Network Security lecture slides and textbook chapters (PDF format).  
+- **Preprocessing:** Each PDF is converted to plain text and split into ~500-word chunks.  
+- **Embedding Model:** `sentence-transformers/all-MiniLM-L6-v2` generates 768-dimensional embeddings.  
+- **Vector Database:** ChromaDB stores and retrieves embeddings locally (`persist_directory='./chroma_db'`).  
+- **Usage:** The embeddings form the context for LLM responses in Tutor and Quiz modes, ensuring all data remains local for privacy.
+
+---
+
 ## 📚 References
 
-1. [The Complete Guide to Building MCP Agents (2025) | Composio](https://www.composio.dev/blog/the-complete-guide-to-building-mcp-agents)
-2. [How to Build AI Chatbots: Full Guide (2025) | YouTube](https://www.youtube.com/watch?v=JxgmHe2NyeY)
+1. [The Complete Guide to Building MCP Agents (2025) | Composio](https://www.composio.dev/blog/the-complete-guide-to-building-mcp-agents)  
+2. [How I Built a RAG-Based AI Chatbot from My Personal Data (2025) | Medium](https://medium.com/@yuhongsun/how-i-built-a-rag-based-ai-chatbot-from-my-personal-data-2025)  
+3. [How to Build AI Chatbots: Full Guide (2025) | YouTube](https://www.youtube.com/watch?v=JxgmHe2NyeY)  
+4. [The Complete Guide to Building Your First AI Agent with LangGraph (2025) | Data Science Collective](https://datasciencecollective.medium.com/the-complete-guide-to-building-your-first-ai-agent-with-langgraph-2025)  
+5. [How to Build Your Own AI Chatbot With ChatGPT API (2023) | Beebom](https://beebom.com/how-build-ai-chatbot-chatgpt-api/)
 
 ---
 
