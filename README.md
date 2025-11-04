@@ -130,11 +130,11 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 
 ## 📚 References
 
-1. [How to Build Your Own AI Chatbot With ChatGPT API – Beebom (2023)](https://beebom.com/how-build-ai-chatbot-chatgpt-api/)
-2. [Build a Chatbot Based on Your Own Documents With ChatGPT – Analytics Vidhya (2023)](https://www.analyticsvidhya.com/blog/2023/04/build-a-chatbot-based-on-your-own-documents-with-chatgpt/)
-3. [Create a Private ChatGPT That Interacts With Your Local Documents – TechTalks (2024)](https://bdtechtalks.com/2024/01/17/create-private-chatgpt-local-documents/)
-4. [The Complete Guide to Building Your First AI Agent With LangGraph – Data Science Collective (2025)](https://datasciencecollective.medium.com/the-complete-guide-to-building-your-first-ai-agent-with-langgraph-2025)
-5. [Sentence Transformers Documentation – UKP Lab (2024)](https://www.sbert.net/)
+1. [The Complete Guide to Building MCP Agents (2025) | Composio](https://www.composio.dev/blog/the-complete-guide-to-building-mcp-agents)
+2. [How I Built a RAG-Based AI Chatbot from My Personal Data (2025) | Medium](https://medium.com/@yuhongsun/how-i-built-a-rag-based-ai-chatbot-from-my-personal-data-2025)
+3. [How to Build AI Chatbots: Full Guide (2025) | YouTube](https://www.youtube.com/watch?v=JxgmHe2NyeY)
+4. [The Complete Guide to Building Your First AI Agent with LangGraph (2025) | Data Science Collective](https://datasciencecollective.medium.com/the-complete-guide-to-building-your-first-ai-agent-with-langgraph-2025)
+5. [How to Build Your Own AI Chatbot With ChatGPT API (2023) | Beebom](https://beebom.com/how-build-ai-chatbot-chatgpt-api/)
 ---
 
 ## 👥 Team Members
