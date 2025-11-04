@@ -131,10 +131,8 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 ## 📚 References
 
 1. [The Complete Guide to Building MCP Agents (2025) | Composio](https://www.composio.dev/blog/the-complete-guide-to-building-mcp-agents)
-2. [How I Built a RAG-Based AI Chatbot from My Personal Data (2025) | Medium](https://medium.com/@yuhongsun/how-i-built-a-rag-based-ai-chatbot-from-my-personal-data-2025)
-3. [How to Build AI Chatbots: Full Guide (2025) | YouTube](https://www.youtube.com/watch?v=JxgmHe2NyeY)
-4. [The Complete Guide to Building Your First AI Agent with LangGraph (2025) | Data Science Collective](https://datasciencecollective.medium.com/the-complete-guide-to-building-your-first-ai-agent-with-langgraph-2025)
-5. [How to Build Your Own AI Chatbot With ChatGPT API (2023) | Beebom](https://beebom.com/how-build-ai-chatbot-chatgpt-api/)
+2. [How to Build AI Chatbots: Full Guide (2025) | YouTube](https://www.youtube.com/watch?v=JxgmHe2NyeY)
+
 ---
 
 ## 👥 Team Members
