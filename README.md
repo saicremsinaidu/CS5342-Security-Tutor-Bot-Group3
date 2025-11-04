@@ -130,10 +130,10 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 
 ## 📚 References
 
-1. *How to Build a Chatbot Based on Your Own Documents* – Analytics Vidhya (2024)  
-2. *Create a Private ChatGPT That Interacts With Your Local Documents* – TechTalks (2025)  
-3. *LangChain and ChromaDB for Local RAG Pipelines* – Medium (2025)  
-4. *Sentence Transformers Documentation* – UKP Lab (2024)
+1. [How to Build a Chatbot Based on Your Own Documents – Analytics Vidhya (2024)](https://www.analyticsvidhya.com/blog/2024/03/build-a-chatbot-based-on-your-own-documents-with-chatgpt/)
+2. [Create a Private ChatGPT That Interacts With Your Local Documents – TechTalks (2025)](https://bdtechtalks.com/2025/01/15/create-private-chatgpt-local-documents/)
+3. [LangChain and ChromaDB for Local RAG Pipelines – Medium (2025)](https://medium.com/@datasciencecollective/langchain-and-chromadb-for-local-rag-pipelines-2025)
+4. [Sentence Transformers Documentation – UKP Lab (2024)](https://www.sbert.net/)
 
 ---
 
