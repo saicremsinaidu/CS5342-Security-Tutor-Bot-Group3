@@ -180,6 +180,8 @@ The system uses locally stored course materials as its knowledge base.
 6. [Create an Azure OpenAI, LangChain, ChromaDB, and Chainlit Chat App (Microsoft Community Hub)](https://techcommunity.microsoft.com/)  
 7. [What Product People Need To Know About LangChain | CommandBar Blog](https://www.commandbar.com/blog/langchain-product-people)  
 8. [Host a Llama 2 API on GPU for Free | Medium](https://medium.com/@yuhongsun/host-a-llama-2-api-on-gpu-for-free)  
+9. [ChromaDB Official Documentation](https://docs.trychroma.com)  
+10. [Streamlit Documentation](https://docs.streamlit.io)  
 
 ---
 
