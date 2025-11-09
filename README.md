@@ -126,7 +126,7 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 
 ## 🎥 Demo Video
 
-📹 **Project Demo:** [Add your YouTube or Google Drive video link here]  
+📹 **Project Demo:** [Need to be updated soon]  
 *(This video demonstrates local setup, tutor mode, quiz generation, and citation functionality.)*
 
 ---
