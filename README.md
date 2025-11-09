@@ -6,9 +6,9 @@
 
 ## 🚀 Key Features
 
-* **Intelligent Tutoring**: Answers course-related questions with citations from lecture materials.
-* **Quiz Generation**: Creates custom quizzes with Multiple Choice, True/False, and Open-ended questions.
-* **Automated Grading**: Grades user responses and provides instant, constructive feedback.
+* **Intelligent Tutoring**: Answers course-related questions with citations from lecture materials.  
+* **Quiz Generation**: Creates custom quizzes with Multiple Choice, True/False, and Open-ended questions.  
+* **Automated Grading**: Grades user responses and provides instant, constructive feedback.  
 * **100% Local**: Ensures all data and interactions remain on the user's local machine for maximum privacy.
 
 ---
@@ -26,7 +26,7 @@
 
 ---
 
-## 🧰 Adopted Libraries
+## 🧮 Adopted Libraries
 
 | Library | Purpose |
 |----------|----------|
@@ -38,6 +38,29 @@
 | `os`, `json`, `random` | File handling and quiz generation logic |
 
 All dependencies are listed in `requirements.txt`.
+
+---
+
+## 🏧 System Architecture
+
+The system consists of the following main components:
+
+1. **User Interface (Streamlit)** – Collects user prompts and displays responses for both Tutor and Quiz modes.  
+2. **Embedding Generator (Sentence-Transformers)** – Converts lecture text into 768-dimensional vectors.  
+3. **Vector Database (ChromaDB)** – Stores embeddings and retrieves contextually relevant chunks.  
+4. **Local LLM Engine** – Processes user prompts combined with retrieved context and generates precise responses.  
+5. **Knowledge Base** – Local lecture slides and textbook PDFs used to train the model.  
+
+### Architecture Workflow
+1. User enters a prompt in Streamlit.  
+2. The prompt is embedded using Sentence-Transformers.  
+3. ChromaDB searches the vector store for relevant context.  
+4. The LLM combines context + prompt and generates a citation-backed response.  
+5. Output (answer/quiz/feedback) is displayed to the user.  
+
+![System Architecture Diagram](./images/system_architecture.png)
+
+**Figure 1:** Workflow of the Local Network-Security Tutor & Quiz Bot
 
 ---
 
@@ -101,6 +124,13 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 
 ---
 
+## 🎥 Demo Video
+
+📹 **Project Demo:** [Add your YouTube or Google Drive video link here]  
+*(This video demonstrates local setup, tutor mode, quiz generation, and citation functionality.)*
+
+---
+
 ## 🧩 Issues Encountered and Solutions
 
 | Issue | Solution |
@@ -115,13 +145,13 @@ Once started, open **http://localhost:8501** in your browser to use the Tutor & 
 
 ## 💡 Suggestions and Feedback
 
-**Suggestions**
+**Suggestions**  
 - Integrate **GPU inference** for faster responses.  
 - Add **user progress tracking** and analytics dashboard.  
 - Extend quiz question types with **fill-in-the-blank** and **scenario-based** problems.  
 - Implement **text-to-speech feedback** for accessibility.
 
-**Team Feedback**
+**Team Feedback**  
 - The project strengthened our understanding of **Retrieval-Augmented Generation (RAG)** systems.  
 - Learned how to fine-tune open-source embeddings and vector databases for privacy-preserving LLMs.  
 - Facing challenges with Streamlit state management helped us improve debugging and modular coding practices.
@@ -146,7 +176,10 @@ The system uses locally stored course materials as its knowledge base.
 2. [How I Built a RAG-Based AI Chatbot from My Personal Data (2025) | Medium](https://medium.com/@yuhongsun/how-i-built-a-rag-based-ai-chatbot-from-my-personal-data-2025)  
 3. [How to Build AI Chatbots: Full Guide (2025) | YouTube](https://www.youtube.com/watch?v=JxgmHe2NyeY)  
 4. [The Complete Guide to Building Your First AI Agent with LangGraph (2025) | Data Science Collective](https://datasciencecollective.medium.com/the-complete-guide-to-building-your-first-ai-agent-with-langgraph-2025)  
-5. [How to Build Your Own AI Chatbot With ChatGPT API (2023) | Beebom](https://beebom.com/how-build-ai-chatbot-chatgpt-api/)
+5. [How to Build Your Own AI Chatbot With ChatGPT API (2023) | Beebom](https://beebom.com/how-build-ai-chatbot-chatgpt-api/)  
+6. [Create an Azure OpenAI, LangChain, ChromaDB, and Chainlit Chat App (Microsoft Community Hub)](https://techcommunity.microsoft.com/)  
+7. [What Product People Need To Know About LangChain | CommandBar Blog](https://www.commandbar.com/blog/langchain-product-people)  
+8. [Host a Llama 2 API on GPU for Free | Medium](https://medium.com/@yuhongsun/host-a-llama-2-api-on-gpu-for-free)  
 
 ---
 
@@ -160,5 +193,3 @@ The system uses locally stored course materials as its knowledge base.
 * Rupesh Sai Narendra Kalyanam  
 * Yugandhar Narravula  
 * Swetha Uma Shankar
-
----
