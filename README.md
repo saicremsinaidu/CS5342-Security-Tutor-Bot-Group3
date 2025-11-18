@@ -1,56 +1,89 @@
-# 📘 CS5342 — Network Security Project  
+# 📘 **CS5342 — Network Security Project**
 ## **Round-2 Prototype Submission — README**
-
 ### **Local Network-Security Tutor & Quiz Agent (Privacy-Preserving)**
-
-This project implements a **local, privacy-preserving intelligent tutor & quiz generator** that interacts with CS5342 network-security documents stored entirely on your local machine. The system uses:
-
-- **Qdrant Vector Database (Docker)**
-- **Sentence Transformers**
-- **GPT4All (offline LLM)**
-- **Gradio UI**
-- **Local knowledge base (PDF slides, textbook pages, quizzes)**
-
-This README is written according to **Round-2 requirements**.
 
 ---
 
-# 🖥️ 1. System Environment
+# 🔥 **1. Project Statement**
 
-### **OS Support**
+Network security courses include hundreds of pages of slides, textbook content, and quizzes. Manually searching these documents is time-consuming, and using online LLMs (ChatGPT, Gemini) violates **data privacy requirements** because documents cannot be uploaded to the cloud.
+
+To solve this, we built a **local, privacy-preserving AI Tutor & Quiz Generator** that:
+
+- Runs fully **offline**
+- Processes **local network security documents only**
+- Answers questions with **document-level citations**
+- Generates **MCQs, True/False, and Open-ended quizzes**
+- Provides **auto-grading & feedback**
+- Protects student data using a **local vector database + local LLM**
+
+This meets **all Round-2 CS5342 project requirements**.
+
+---
+
+# 🧠 **2. Project Description**
+
+Our system has **two core agents**:
+
+### **1️⃣ Q&A Tutor Agent**
+- Takes any network-security question  
+- Converts the question into embeddings  
+- Retrieves relevant document chunks from Qdrant  
+- Generates a response using GPT4All  
+- Displays **citation (document + page number)**  
+- Works 100% offline  
+
+### **2️⃣ Quiz Agent**
+- Generates **topic-specific quizzes**  
+- Generates **random quizzes**  
+- Supports:
+  - MCQs  
+  - True/False  
+  - Open-ended questions  
+- Grades user answers using similarity scoring (FuzzyWuzzy)  
+- Provides feedback + correct answers + citations  
+
+---
+
+# 🖥️ **3. System Environment**
+
+### **Operating Systems**
 - macOS  
 - Windows  
 - Linux  
 
 ### **Python Version**
-Python 3.9+ recommended
+- Python **3.9 or above**
 
 ### **Hardware Requirements**
-- Minimum 8GB RAM  
-- CPU-only supported  
+- 8GB RAM minimum  
+- CPU-only supported (no GPU required)
 
 ---
 
-# 📦 2. Adopted Libraries
+# 📦 **4. Adopted Libraries**
 
 | Library | Purpose |
 |--------|---------|
-| sentence-transformers | Embedding model |
-| qdrant-client | Vector DB connection |
-| gradio | Web UI |
-| gpt4all | Offline LLM |
-| pymupdf | PDF → text |
-| fuzzywuzzy | Similarity scoring |
-| python-Levenshtein | Fast fuzzy matching |
+| **sentence-transformers** | Creates embeddings for text |
+| **qdrant-client** | Vector database connection |
+| **gradio** | Web-based UI |
+| **gpt4all** | Lightweight offline LLM |
+| **pymupdf (fitz)** | Extract text from PDF documents |
+| **fuzzywuzzy** | Similarity scoring for grading |
+| **python-Levenshtein** | Enhances fuzzy matching speed |
 
-Install:
+Install all dependencies:
+
 ```
 pip install fuzzywuzzy python-Levenshtein sentence-transformers qdrant-client gradio gpt4all pymupdf
 ```
 
 ---
 
-# 🐳 3. Qdrant Setup
+# 🐳 **5. Qdrant Setup (Vector Database)**
+
+Start Qdrant locally using Docker:
 
 ```
 docker pull qdrant/qdrant
@@ -59,28 +92,28 @@ docker run -p 6333:6333 qdrant/qdrant
 
 ---
 
-# 🔧 4. Virtual Environment
+# 🔧 **6. Virtual Environment Setup**
 
-### macOS/Linux
+### **macOS/Linux**
 ```
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### Windows
+### **Windows**
 ```
 python -m venv venv
 venv\Scripts\activate
 ```
 
-If PowerShell error:
+If PowerShell gives permission error:
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ---
 
-# 📂 5. Project Structure
+# 📁 **7. Project Structure**
 
 ```
 project/
@@ -89,70 +122,133 @@ project/
 │   ├── Data_insertion_qdrant.py
 │   ├── chatbot_application.py
 │── knowledge_base/
+│   ├── (lecture slides, textbook pages, quizzes)
 │── README.md
-│── venv/
+│── requirements.txt (optional)
+│── venv/ (ignored)
 ```
 
 ---
 
-# 🔄 6. Execution Flow
+# 📚 **8. Training Data & Data Format**
 
-### **1. Initialize DB**
-```
-python Scripts/initialise_qdrant.py
-```
+### **Knowledge Documents**
+Stored in:
 
-### **2. Add PDFs**
-Place into:
 ```
 knowledge_base/
 ```
 
-### **3. Insert Into Vector DB**
+Includes:
+- CS5342 lecture slides  
+- Textbook pages  
+- Quizzes  
+- Any additional network-security PDFs  
+
+### **Chunking Method**
+- PDFs extracted using **PyMuPDF**  
+- Each page converted to text  
+- Text split into chunks of ~500–700 characters  
+
+### **Embedding Model**
+- `all-MiniLM-L12-v2`  
+- Embedding vector size: **384**  
+- Distance metric: **cosine similarity**
+
+### **Qdrant Collection Structure**
+
+Each entry contains:
+- `text`  
+- `document_name`  
+- `page_number`  
+- `embedding` vector  
+
+---
+
+# 🔄 **9. Execution Flow**
+
+### **Step 1 — Initialize Database**
+```
+python Scripts/initialise_qdrant.py
+```
+
+### **Step 2 — Add PDFs**
+Place all documents into:
+```
+knowledge_base/
+```
+
+### **Step 3 — Insert Data into Qdrant**
 ```
 python Scripts/Data_insertion_qdrant.py
 ```
 
-### **4. Start Chatbot**
+### **Step 4 — Launch the Tutor/Quiz Bot**
 ```
 python Scripts/chatbot_application.py
 ```
 
-Access:
+### **Step 5 — Access Web UI**
+Visit:
 ```
 http://127.0.0.1:7860
 ```
 
 ---
 
-# 🤖 7. Features
+# 🧱 **10. System Architecture Diagram**
 
-### Tutor Agent
-- Answers questions  
-- Includes citations  
-- Uses local data first  
-
-### Quiz Agent
-- MCQ  
-- True/False  
-- Open-ended  
-- Random OR topic-based  
-- Auto-grading with feedback  
+```
+                    ┌────────────────┐
+                    │    User UI     │  (Gradio)
+                    └───────┬────────┘
+                            │ Prompt
+                            ▼
+                 ┌─────────────────────┐
+                 │ Embedding Model     │ 
+                 │ (SentenceTransformer│
+                 └───────┬────────────┘
+                         │ Vector Query
+                         ▼
+                ┌──────────────────────┐
+                │   Qdrant Vector DB   │
+                └───────┬─────────────┘
+                        │ Relevant Chunks
+                        ▼
+                ┌──────────────────────┐
+                │     GPT4All LLM      │
+                └───────┬─────────────┘
+                        │ Response + Citations
+                        ▼
+                ┌──────────────────────┐
+                │   Output to UI       │
+                └──────────────────────┘
+```
 
 ---
 
-# 🛑 8. Issues & Solutions
+# 🤖 **11. Core Features**
 
-### Issue: Qdrant not running  
-Fix: restart Docker container.  
+### ✔ Q&A Tutor Agent  
+### ✔ Quiz Agent  
+### ✔ Offline, Privacy-Preserving  
+### ✔ Auto-Grading  
+### ✔ Citations Included  
 
-### Issue: PDF extraction fails  
+---
+
+# 🐞 **12. Issues & Solutions**
+
+### **Issue — Qdrant not running**
+Fix: Restart Docker.
+
+### **Issue — PyMuPDF error**
 Fix:
 ```
 pip install pymupdf
 ```
 
-### Issue: Windows venv error  
+### **Issue — venv not activating**
 Fix:
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -160,22 +256,16 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ---
 
-# 💡 9. Suggestions & Feedback
+# 💡 **13. Suggestions & Feedback**
 
-- Add API/Wireshark trace capture for bonus  
-- Add system security filters  
-- UI improvements  
-- Add GPU model for faster LLM  
-
----
-
-# 🧱 10. Architecture Diagram
-
-User → Gradio UI → Embedding Model → Qdrant → GPT4All → Response
+- Add Wireshark-based analysis for bonus  
+- Improve user interface  
+- Add dark mode  
+- Add exportable reports  
 
 ---
 
-# 📜 11. Commands Summary
+# 🧾 **14. Commands Summary**
 
 ```
 docker pull qdrant/qdrant
@@ -194,10 +284,10 @@ python Scripts/chatbot_application.py
 
 ---
 
-# 🧾 12. References
-- TechTalks — How to create a private ChatGPT  
-- CommandBar Blog — LangChain  
-- Microsoft Azure + ChromaDB guide  
+# 📚 **15. References**
 
----
-
+1. TechTalks — Private ChatGPT  
+2. CommandBar Blog — LangChain  
+3. GPT4All Documentation  
+4. Qdrant Documentation  
+5. RAG & Agent-Based Tutorials  
