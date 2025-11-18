@@ -7,7 +7,7 @@ venv/
 
 # Logs and temp files
 *.log
-*.txt
+query_logs.txt
 __pycache__/
 *.pyc
 
@@ -15,8 +15,5 @@ __pycache__/
 .vscode/
 .idea/
 
-# Local project assets
+# Local unwanted assets
 image.png
-knowledge_base/
-query_logs.txt
-
