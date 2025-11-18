@@ -1,0 +1,22 @@
+# OS files
+.DS_Store
+
+# Python virtual environments
+venv/
+.env/
+
+# Logs and temp files
+*.log
+*.txt
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/
+
+# Local project assets
+image.png
+knowledge_base/
+query_logs.txt
+
